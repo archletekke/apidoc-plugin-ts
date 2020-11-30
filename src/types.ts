@@ -4,20 +4,20 @@ export namespace Apidoc {
     }
 
     export interface App {
-        addHook(name: AvailableHook, func: Function, priority?: number)
+      addHook (name: AvailableHook, func: Function, priority?: number)
     }
 
     export interface Element {
-        source: string
-        name: string
-        sourceName: string
-        content: string
+      source: string
+      name: string
+      sourceName: string
+      content: string
     }
 
     export type ParserFindElementsHookCallback = (
-        elements: Element[],
-        element: Element,
-        block: string,
-        filename: string
+      elements: Element[],
+      element: Element,
+      block: string,
+      filename: string
     ) => void
 }

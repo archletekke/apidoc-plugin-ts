@@ -1,5 +1,5 @@
-import { InterfaceDeclaration, PropertySignature, Symbol, SourceFile, NamespaceDeclaration, ts } from 'ts-morph'
-import { ast, definitionFilesAddedByUser } from "."
+import { InterfaceDeclaration, PropertySignature, SourceFile, NamespaceDeclaration, ts } from 'ts-morph'
+import { ast, definitionFilesAddedByUser } from '.'
 
 type NamespacedContext = SourceFile | NamespaceDeclaration
 interface NamespacedDeclaration {
@@ -22,7 +22,8 @@ export enum PropType {
   Enum = 'Enum',
   Array = 'Array',
   Object = 'Object',
-  Native = 'Native'
+  Native = 'Native',
+  NativeArray = 'NativeArray'
 }
 
 export function parseDefinitionFiles (interfacePath: string): SourceFile | undefined {
@@ -70,6 +71,7 @@ export function getNamespacedInterface (
 ): InterfaceDeclaration | undefined {
   return namespace.getInterface(interfaceName)
 }
+
 export function getInterface (interfacePath: string, interfaceName: string): InterfaceDeclaration | undefined {
   const interfaceFile = parseDefinitionFiles(interfacePath)
   const { namespace, leafName } = extractNamespace.call(this, interfaceFile, interfaceName)
@@ -84,7 +86,7 @@ export function getCapitalized (text: string): string {
   return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
 }
 
-const NATIVE_TYPES = ['boolean', 'Boolean', 'string', 'String', 'number', 'Number', 'Date', 'any']
+export const NATIVE_TYPES = ['boolean', 'Boolean', 'string', 'String', 'number', 'Number', 'Date', 'any']
 export function isNativeType (propType: string): boolean {
   return NATIVE_TYPES.indexOf(propType) >= 0
 }
@@ -99,7 +101,9 @@ export function getPropTypeEnum (prop: PropertySignature): PropType {
   const propTypeIsEnum = prop.getType().isEnum()
   const propTypeIsObject = !propTypeIsEnum && !isNativeType(propType)
   const propTypeIsArray = propTypeIsObject && propType.includes('[]')
+  const propTypeIsNativeArray = !propTypeIsEnum && isNativeArrayType(propType)
 
+  if (propTypeIsNativeArray) return PropType.NativeArray
   if (propTypeIsArray) return PropType.Array
   if (propTypeIsObject) return PropType.Object
   if (propTypeIsEnum) return PropType.Enum
@@ -107,13 +111,8 @@ export function getPropTypeEnum (prop: PropertySignature): PropType {
 }
 
 export function getPropLabel (typeEnum: PropType, propTypeName: string): string {
-  if (typeEnum === PropType.Array) {
-    const isNative = isNativeArrayType(propTypeName)
-    if (isNative) {
-      return propTypeName
-    }
-    return 'Object[]'
-  }
+  if (typeEnum === PropType.NativeArray) return getCapitalized(propTypeName)
+  if (typeEnum === PropType.Array) return 'Object[]'
   if (typeEnum === PropType.Object) return 'Object'
   if (typeEnum === PropType.Enum) return 'Enum'
 

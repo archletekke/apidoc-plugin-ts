@@ -35,6 +35,9 @@ const tests = [
 describe('Apidoc TS Plugin', () => {
   tests.forEach(function (test) {
     (test.only ? it.only : (test.skip ? it.skip : it))(test.name, async function () {
+      // give the test a bit more time since it seems to take more than 2 sec
+      this.timeout(10000)
+
       const dest = `out/${test.name}`
       apidoc.createDoc({
         src: `${test.name}`,
