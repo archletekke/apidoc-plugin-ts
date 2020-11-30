@@ -16,10 +16,10 @@ npm install --save-dev apidoc @geoblink/apidoc-plugin-ts
 yarn add -D apidoc @geoblink/apidoc-plugin-ts
 ```
 
-A custom api-doc param `@apiInterface` is exposed:
+A custom api-doc param `@apiInterfaceSuccess` is exposed:
 
 ```javascript
-@apiInterface (optional path to definitions file) {INTERFACE_NAME}
+@apiInterfaceSuccess (optional path to definitions file) {INTERFACE_NAME}
  ```
 
 ## Example
@@ -47,7 +47,7 @@ export interface Employer {
 and the following custom param:
 
 ```javascript
-@apiInterface (./employers.ts) {Person}
+@apiInterfaceSuccess (./employers.ts) {Person}
 ```
 
 under the hood this would transpile to:
@@ -62,5 +62,5 @@ under the hood this would transpile to:
 *Note if the `Person` interface is defined in the same file then you can drop the path:*
 
 ```javascript
-@apiInterface {Person}
+@apiInterfaceSuccess {Person}
 ```

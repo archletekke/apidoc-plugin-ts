@@ -6,13 +6,13 @@ interface SquareConfig {
 /**
  * @api {get} /api/:id
  * @apiParam {SquareConfig} id Unique ID.
- * @apiInterface {SquareConfig[]} squareConfigs
+ * @apiInterfaceSuccess {SquareConfig[]} squareConfigs
  * @apiGroup arrayWithBracketsTest
  */
 
 /**
  * @api {get} /api/:id
  * @apiParam {SquareConfig} id Unique ID.
- * @apiInterface {Array<SquareConfig>} squareConfigs
+ * @apiInterfaceSuccess {Array<SquareConfig>} squareConfigs
  * @apiGroup arrayAsGenericsTest
  */

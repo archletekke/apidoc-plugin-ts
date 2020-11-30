@@ -1,6 +1,6 @@
 /**
  * @api {get} /api/:id
  * @apiParam {SquareConfig} id Unique ID.
- * @apiInterface {number} area
+ * @apiInterfaceSuccess {number} area
  * @apiGroup arrayWithBracketsTest
  */
