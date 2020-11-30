@@ -1,19 +1,15 @@
 # apidoc-plugin-ts
 
-[![Build Status](https://travis-ci.org/geoblink/apidoc-plugin-ts.svg?branch=master)](https://travis-ci.org/geoblink/apidoc-plugin-ts)
-[![npm](https://img.shields.io/npm/v/@geoblink/apidoc-plugin-ts.svg)](https://www.npmjs.com/package/@geoblink/apidoc-plugin-ts) [![Greenkeeper badge](https://badges.greenkeeper.io/geoblink/apidoc-plugin-ts.svg)](https://greenkeeper.io/)
-
-A plugin for [apidoc](https://www.npmjs.com/package/apidoc) that injects `@apiSuccess` params from TypeScript interfaces.
-Supports extended and nested interfaces.
+A plugin for [apidoc](https://www.npmjs.com/package/apidoc) that injects `@apiSuccess` and `@apiParam` params from TypeScript interfaces. Supports extended and nested interfaces.
 
 ## Getting started
 
 ```javascript
-npm install --save-dev apidoc @geoblink/apidoc-plugin-ts
+npm install --save-dev apidoc @archlet/apidoc-plugin-ts
 ```
 
 ```javascript
-yarn add -D apidoc @geoblink/apidoc-plugin-ts
+yarn add -D apidoc @archlet/apidoc-plugin-ts
 ```
 
 A custom api-doc param `@apiInterfaceSuccess` is exposed:
@@ -44,17 +40,20 @@ export interface Employer {
 }
 ```
 
+### @apiInterfaceSuccess example
+
+
 and the following custom param:
 
 ```javascript
-@apiInterfaceSuccess (./employers.ts) {Person}
+@apiInterfaceSuccess (./employers.ts) {Employer}
 ```
 
 under the hood this would transpile to:
 
 ```javascript
 @apiSuccess {String} jobTitle Job title
-@apiSuccess {Object} personalDetails Empoyer personal details
+@apiSuccess {Object} personalDetails Employer personal details
 @apiSuccess {String} personalDetails.name
 @apiSuccess {Number} personalDetails.age
 ```
@@ -63,4 +62,27 @@ under the hood this would transpile to:
 
 ```javascript
 @apiInterfaceSuccess {Person}
+```
+### @apiInterfaceParam example
+
+
+and the following custom param:
+
+```javascript
+@apiInterfaceParam (./employers.ts) {Employer}
+```
+
+under the hood this would transpile to:
+
+```javascript
+@apiParam {String} jobTitle Job title
+@apiParam {Object} personalDetails Employer personal details
+@apiParam {String} personalDetails.name
+@apiParam {Number} personalDetails.age
+```
+
+*Note if the `Person` interface is defined in the same file then you can drop the path:*
+
+```javascript
+@apiInterfaceParam {Person}
 ```
