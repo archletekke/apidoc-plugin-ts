@@ -2,7 +2,7 @@ import * as ts from 'typescript'
 import * as path from 'path'
 import { Project as Ast, InterfaceDeclaration, PropertySignature, Symbol, SourceFile, NamespaceDeclaration } from 'ts-morph'
 
-export const APIDOC_PLUGIN_TS_CUSTOM_ELEMENT_NAME = 'apiinterface'
+export const APIDOC_PLUGIN_TS_CUSTOM_ELEMENT_NAME = 'apiinterfacesuccess'
 
 const definitionFilesAddedByUser: {[key: string]: boolean} = {}
 
@@ -442,9 +442,13 @@ function getCapitalized (text: string): string {
   return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
 }
 
+const NATIVE_TYPES = ['boolean', 'Boolean', 'string', 'String', 'number', 'Number', 'Date', 'any']
 function isNativeType (propType: string): boolean {
-  const nativeTypes = ['boolean', 'Boolean', 'string', 'String', 'number', 'Number', 'Date', 'any']
-  return nativeTypes.indexOf(propType) >= 0
+  return NATIVE_TYPES.indexOf(propType) >= 0
+}
+
+function isNativeArrayType (propType: string): boolean {
+  return NATIVE_TYPES.find(nativeType => propType === `${nativeType}[]`) !== undefined
 }
 
 function getPropTypeEnum (prop: PropertySignature): PropType {
@@ -460,8 +464,17 @@ function getPropTypeEnum (prop: PropertySignature): PropType {
   return PropType.Native
 }
 
+
+
 function getPropLabel (typeEnum: PropType, propTypeName: string): string {
-  if (typeEnum === PropType.Array) return 'Object[]'
+  if (typeEnum === PropType.Array) {
+    const isNative = isNativeArrayType(propTypeName)
+    console.error('isNativeArrayType', isNative, propTypeName)
+    if (isNative) {
+      return propTypeName
+    }
+    return 'Object[]'
+  }
   if (typeEnum === PropType.Object) return 'Object'
   if (typeEnum === PropType.Enum) return 'Enum'
 

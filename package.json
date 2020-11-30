@@ -1,7 +1,7 @@
 {
-  "name": "@geoblink/apidoc-plugin-ts",
+  "name": "@archlet/apidoc-plugin-ts-success",
   "version": "1.0.3",
-  "description": "A plugin for apidoc leveraging TypeScript interfaces.",
+  "description": "A plugin for apidoc leveraging TypeScript interfaces to parse the @apiSuccess tag.",
   "main": "dist/index.js",
   "files": [
     "dist/"
@@ -17,8 +17,7 @@
     "pretest": "rm -rf test/out && run-s build copy:plugin"
   },
   "authors": [
-    "Tom Grey",
-    "Geoblink"
+    "Archlet"
   ],
   "license": "MIT",
   "engines": {
@@ -34,7 +33,8 @@
   "keywords": [
     "apidoc",
     "apidoc plugin",
-    "typescript"
+    "typescript",
+    "return interface"
   ],
   "peerDependencies": {
     "apidoc": "^0.17.7"
