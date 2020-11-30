@@ -1,6 +1,6 @@
 {
-  "name": "@archlet/apidoc-plugin-ts",
-  "version": "1.0.4",
+  "name": "apidoc-plugin-ts-archlet",
+  "version": "2.0.0",
   "description": "A plugin for apidoc leveraging TypeScript interfaces.",
   "main": "dist/index.js",
   "files": [
