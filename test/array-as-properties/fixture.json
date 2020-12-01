@@ -21,21 +21,21 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "object[]",
             "optional": false,
             "field": "squares",
             "description": "<p><code>squares</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "squares.color",
             "description": "<p><code>squares.color</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "squares.width",
             "description": "<p><code>squares.width</code></p>"
@@ -71,21 +71,21 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "object[]",
             "optional": false,
             "field": "squares",
             "description": "<p><code>squares</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "squares.color",
             "description": "<p><code>squares.color</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "squares.width",
             "description": "<p><code>squares.width</code></p>"

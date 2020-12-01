@@ -1,13 +1,7 @@
 import { PropertySignature } from 'ts-morph'
-import { getCapitalized, getPropLabel, getPropTypeEnum, isNativeArrayType, isNativeType, PropType } from './utils'
+import { getPropLabel, getPropTypeEnum, isNativeArrayType, isNativeType, parse, PropType } from './utils'
 
 describe('utils', () => {
-  describe('getCapitalized', () => {
-    it('should capitalize a string', () => {
-      expect(getCapitalized('string')).toBe('String')
-    })
-  })
-
   describe('isNativeType', () => {
     it('should return true for - string', () => {
       expect(isNativeType('string')).toBe(true)
@@ -91,19 +85,56 @@ describe('utils', () => {
 
   describe('getPropLabel', () => {
     it('should return original name if NativeArray', () => {
-      expect(getPropLabel(PropType.NativeArray, 'string[]')).toEqual('String[]')
+      expect(getPropLabel(PropType.NativeArray, 'string[]')).toEqual('string[]')
     })
     it('should return Object[] if Array', () => {
-      expect(getPropLabel(PropType.Array, 'AString[]')).toEqual('Object[]')
+      expect(getPropLabel(PropType.Array, 'AString[]')).toEqual('object[]')
     })
     it('should return Object if Object', () => {
-      expect(getPropLabel(PropType.Object, 'AString')).toEqual('Object')
+      expect(getPropLabel(PropType.Object, 'AString')).toEqual('object')
     })
     it('should return Enum if Enum', () => {
       expect(getPropLabel(PropType.Enum, 'AString')).toEqual('Enum')
     })
     it('should return original name if Native', () => {
-      expect(getPropLabel(PropType.Native, 'string')).toEqual('String')
+      expect(getPropLabel(PropType.Native, 'string')).toEqual('string')
+    })
+  })
+
+  describe('parse', () => {
+    it('should return null with non-parsable string', () => {
+      expect(parse('snns')).toBe(null)
+      expect(parse('(snns)')).toBe(null)
+      expect(parse('string[]]')).toBe(null)
+    })
+    it('should parse with no name or comment', () => {
+      expect(parse('{Model}')).toMatchObject({
+        interface: 'Model',
+        description: '',
+        element: 'apiSuccess',
+      })
+    })
+    it('should parse with name but no comment', () => {
+      expect(parse('{Model} name')).toMatchObject({
+        interface: 'Model',
+        description: '',
+        element: 'name',
+      })
+    })
+    it('should parse with name and comment', () => {
+      expect(parse('{Model} name I am a comment')).toMatchObject({
+        interface: 'Model',
+        description: 'I am a comment',
+        element: 'name',
+      })
+    })
+    it('should parse with path, name and comment', () => {
+      expect(parse('(path.ts) {Model} name I am a comment')).toMatchObject({
+        path: 'path.ts',
+        interface: 'Model',
+        description: 'I am a comment',
+        element: 'name',
+      })
     })
   })
 })

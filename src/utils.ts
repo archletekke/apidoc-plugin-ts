@@ -11,6 +11,7 @@ export interface ParseResult {
   element: string
   interface: string
   path: string
+  description: string
 }
 
 export interface ArrayMatch {
@@ -82,10 +83,6 @@ export function trackUserAddedDefinitionFile (file: SourceFile) {
   definitionFilesAddedByUser[file.getFilePath()] = true
 }
 
-export function getCapitalized (text: string): string {
-  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
-}
-
 export const NATIVE_TYPES = ['boolean', 'Boolean', 'string', 'String', 'number', 'Number', 'Date', 'any']
 export function isNativeType (propType: string): boolean {
   return NATIVE_TYPES.indexOf(propType) >= 0
@@ -111,12 +108,12 @@ export function getPropTypeEnum (prop: PropertySignature): PropType {
 }
 
 export function getPropLabel (typeEnum: PropType, propTypeName: string): string {
-  if (typeEnum === PropType.NativeArray) return getCapitalized(propTypeName)
-  if (typeEnum === PropType.Array) return 'Object[]'
-  if (typeEnum === PropType.Object) return 'Object'
+  if (typeEnum === PropType.NativeArray) return propTypeName
+  if (typeEnum === PropType.Array) return 'object[]'
+  if (typeEnum === PropType.Object) return 'object'
   if (typeEnum === PropType.Enum) return 'Enum'
 
-  return getCapitalized(propTypeName)
+  return propTypeName
 }
 
 export function matchArrayInterface (interfaceName): ArrayMatch | null {
@@ -133,4 +130,31 @@ export function matchArrayInterface (interfaceName): ArrayMatch | null {
 export function isUserDefinedSymbol (symbol: ts.Symbol): boolean {
   const declarationFile = symbol.valueDeclaration.parent.getSourceFile()
   return definitionFilesAddedByUser[declarationFile.fileName]
+}
+
+export function getDocumentationComments (prop: PropertySignature, typeDef: string) {
+  const documentationComments = prop.getJsDocs().map((node) => node.getInnerText()).join()
+  return documentationComments
+    ? `\`${typeDef}\` - ${documentationComments}`
+    : `\`${typeDef}\``
+}
+
+/**
+ * Parse element content
+ * @param content
+ */
+export function parse (content: string): ParseResult | null {
+  if (content.length === 0) return null
+
+  const parseRegExp = /^(?:\((.+?)\)){0,1}\s*\{(.+?)\}\s*(?:([a-zA-Z_]+))?\s*(?:(.+))?/g
+  const matches = parseRegExp.exec(content)
+
+  if (!matches) return null
+
+  return {
+    description: matches[4] || '',
+    element: matches[3] || 'apiSuccess',
+    interface: matches[2],
+    path: matches[1]
+  }
 }

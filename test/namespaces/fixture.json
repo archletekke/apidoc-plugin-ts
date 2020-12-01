@@ -8,7 +8,7 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "id",
             "description": "<p><code>id</code></p>"

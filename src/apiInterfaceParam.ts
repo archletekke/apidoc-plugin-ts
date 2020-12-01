@@ -2,7 +2,7 @@ import * as ts from 'typescript'
 import * as path from 'path'
 import { InterfaceDeclaration, PropertySignature, Symbol, NamespaceDeclaration } from 'ts-morph'
 import { Apidoc } from './types'
-import { ArrayMatch, extractNamespace, getCapitalized, getInterface, getNamespacedInterface, getPropLabel, getPropTypeEnum, isNativeType, isUserDefinedSymbol, matchArrayInterface, parseDefinitionFiles, ParseResult, PropType } from './utils'
+import { ArrayMatch, extractNamespace, getDocumentationComments, getInterface, getNamespacedInterface, getPropLabel, getPropTypeEnum, isNativeArrayType, isNativeType, isUserDefinedSymbol, matchArrayInterface, parse, parseDefinitionFiles, ParseResult, PropType } from './utils'
 
 export const APIDOC_PLUGIN_TS_CUSTOM_ELEMENT_NAME = 'apiinterfaceparam'
 
@@ -89,25 +89,6 @@ function parseInterface (elements: Apidoc.Element[], newElements: Apidoc.Element
 }
 
 /**
- * Parse element content
- * @param content
- */
-function parse (content: string): ParseResult | null {
-  if (content.length === 0) return null
-
-  const parseRegExp = /^(?:\((.+?)\)){0,1}\s*\{(.+?)\}\s*(?:(.+))?/g
-  const matches = parseRegExp.exec(content)
-
-  if (!matches) return null
-
-  return {
-    element: matches[3] || 'apiParam',
-    interface: matches[2],
-    path: matches[1]
-  }
-}
-
-/**
  *
  * @param matchedInterface
  * @param filename
@@ -123,7 +104,8 @@ function setArrayElements (
     inttype?: string
 ) {
   const name = values.element
-  newElements.push(getApiSuccessElement(`{Object[]} ${name} ${name}`))
+  const description = values.description
+  newElements.push(getApiSuccessElement(`{Object[]} ${name} ${description}`))
   setInterfaceElements.call(this, matchedInterface, filename, newElements, values, name)
 }
 /**
@@ -148,10 +130,7 @@ function setInterfaceElements (
   matchedInterface.getProperties().forEach((prop: PropertySignature) => {
     // Set param type definition and description
     const typeDef = inttype ? `${inttype}.${prop.getName()}` : prop.getName()
-    const documentationComments = prop.getJsDocs().map((node) => node.getInnerText()).join()
-    const description = documentationComments
-      ? `\`${typeDef}\` - ${documentationComments}`
-      : `\`${typeDef}\``
+    const description = getDocumentationComments(prop, typeDef);
 
     // Set property type as a string
     const propTypeName = prop.getType().getText()
@@ -192,7 +171,7 @@ function setNativeElements (
   // inttype?: string
 ) {
 
-  const propLabel = getCapitalized(values.interface)
+  const propLabel = values.interface
   // Set the element
   newElements.push(getApiSuccessElement(`{${propLabel}} ${values.element}`))
   return
@@ -227,7 +206,12 @@ function setObjectElements<NodeType extends ts.Node = ts.Node> (
 
     // Nothing to do if prop is of native type
     if (isNativeType(propType)) {
-      newElements.push(getApiSuccessElement(`{${getCapitalized(propType)}} ${typeDefLabel} ${desc}`))
+      newElements.push(getApiSuccessElement(`{${propType}} ${typeDefLabel} ${desc}`))
+      return
+    }
+    // Nothing to do if prop is of native array type
+    if (isNativeArrayType(propType)) {
+      newElements.push(getApiSuccessElement(`{${propType}} ${typeDefLabel} ${desc}`))
       return
     }
 

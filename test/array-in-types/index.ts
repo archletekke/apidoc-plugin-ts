@@ -6,7 +6,7 @@ interface SquareConfig {
 /**
  * @api {get} /api/:id
  * @apiParam {SquareConfig} id Unique ID.
- * @apiInterfaceSuccess {SquareConfig[]} squareConfigs
+ * @apiInterfaceSuccess {SquareConfig[]} squareConfigs 
  * @apiGroup arrayWithBracketsTest
  */
 

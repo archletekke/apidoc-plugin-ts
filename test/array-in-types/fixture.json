@@ -24,18 +24,18 @@
             "type": "Object[]",
             "optional": false,
             "field": "squareConfigs",
-            "description": "<p>squareConfigs</p>"
+            "description": ""
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "squareConfigs.color",
             "description": "<p><code>squareConfigs.color</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "squareConfigs.width",
             "description": "<p><code>squareConfigs.width</code></p>"
@@ -74,18 +74,18 @@
             "type": "Object[]",
             "optional": false,
             "field": "squareConfigs",
-            "description": "<p>squareConfigs</p>"
+            "description": ""
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "squareConfigs.color",
             "description": "<p><code>squareConfigs.color</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "squareConfigs.width",
             "description": "<p><code>squareConfigs.width</code></p>"
