@@ -15,7 +15,7 @@ export function localInterfaceTest (): SquareConfig {
 
 /**
  * @api {get} /api/:id
- * @apiParam {Number} id Unique ID.
+ * @apiParam {number} id Unique ID.
  * @apiInterfaceSuccess (./interfaces.ts) { InnerSquare }
  * @apiGroup extendInterfaceTest
  */
@@ -25,7 +25,7 @@ export function extendInterfaceTest () {
 
 /**
  * @api {get} /api/:id
- * @apiParam {Number} id Unique ID.
+ * @apiParam {number} id Unique ID.
  * @apiInterfaceSuccess (./interfaces.ts) { Employer }
  * @apiGroup importedInterfaceTest
  */
@@ -35,7 +35,7 @@ export function importedInterfaceTest () {
 
 /**
  * @api {get} /api/:id
- * @apiParam {Number} id Unique ID.
+ * @apiParam {number} id Unique ID.
  * @apiInterfaceSuccess (./interfaces.ts) { TeamPicks }
  * @apiGroup deepExtendsInterfaceTest
  */
@@ -45,7 +45,7 @@ export function deepExtendsInterfaceTest () {
 
 /**
  * @api {get} /api/:id
- * @apiParam {Number} id Unique ID.
+ * @apiParam {number} id Unique ID.
  * @apiInterfaceSuccess (./interfaces.ts) { SearchResult }
  * @apiGroup deepExternalInterfaceTest
  */
@@ -55,7 +55,7 @@ export function deepExternalInterfaceTest () {
 
 /**
  * @api {get} /api/:id
- * @apiParam {Number} id Unique ID.
+ * @apiParam {number} id Unique ID.
  * @apiInterfaceSuccess (./interfaces.ts) {ShapedSkill}
  * @apiGroup multipleInheritanceTest
  */
@@ -65,7 +65,7 @@ export function multipleInheritanceTest () {
 
 /**
  * @api {get} /api/:id
- * @apiParam {Number} id Unique ID.
+ * @apiParam {number} id Unique ID.
  * @apiInterfaceSuccess (./interfaces.ts) {CustomNamespace.ComposedInterface}
  * @apiGroup namespacedInterfaceTest
  */
@@ -77,7 +77,7 @@ export function namespacedInterfaceTest () {
 // This is not supported yet.
 //
 //  * @api {get} /api/:id
-//  * @apiParam {Number} id Unique ID.
+//  * @apiParam {number} id Unique ID.
 //  * @apiInterfaceSuccess (./interfaces.ts) {GenericInterface<boolean>}
 //  * @apiGroup genericInterfaceTest
 //
@@ -88,7 +88,7 @@ export function namespacedInterfaceTest () {
 
 /**
  * @api {get} /api/:id
- * @apiParam {Number} id Unique ID.
+ * @apiParam {number} id Unique ID.
  * @apiInterfaceSuccess {X}
  * @apiGroup notFoundTest
  */

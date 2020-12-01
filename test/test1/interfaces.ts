@@ -26,7 +26,7 @@ export interface Person {
   age: number
   dateOfBirth: Date
   /**
-   * The Address Object
+   * The Address object
    */
   address: {
     /**

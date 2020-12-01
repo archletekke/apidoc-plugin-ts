@@ -21,7 +21,7 @@
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "object[]",
             "optional": false,
             "field": "squares",
             "description": "<p><code>squares</code></p>"
@@ -35,7 +35,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "squares.width",
             "description": "<p><code>squares.width</code></p>"

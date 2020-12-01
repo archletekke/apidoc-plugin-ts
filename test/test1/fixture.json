@@ -6,7 +6,7 @@
       "fields": {
         "Parameter": [{
           "group": "Parameter",
-          "type": "Number",
+          "type": "number",
           "optional": false,
           "field": "id",
           "description": "<p>Unique ID.</p>"
@@ -17,28 +17,28 @@
       "fields": {
         "Success 200": [{
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "id",
             "description": "<p><code>id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "object[]",
             "optional": false,
             "field": "picks",
             "description": "<p><code>picks</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "picks.id",
             "description": "<p><code>picks.id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "picks.webName",
             "description": "<p><code>picks.webName</code></p>"
@@ -52,21 +52,21 @@
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "picks.stats.totalGoals",
             "description": "<p><code>picks.stats.totalGoals</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "picks.stats.timesBenched",
             "description": "<p><code>picks.stats.timesBenched</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "picks.stats.timesCaptained",
             "description": "<p><code>picks.stats.timesCaptained</code></p>"
@@ -88,7 +88,7 @@
       "fields": {
         "Parameter": [{
           "group": "Parameter",
-          "type": "Number",
+          "type": "number",
           "optional": false,
           "field": "id",
           "description": "<p>Unique ID.</p>"
@@ -99,35 +99,35 @@
       "fields": {
         "Success 200": [{
             "group": "Success 200",
-            "type": "Object",
+            "type": "object",
             "optional": false,
             "field": "data",
             "description": "<p><code>data</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "data.id",
             "description": "<p><code>data.id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "data.category",
             "description": "<p><code>data.category</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "data.content",
             "description": "<p><code>data.content</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "data.name",
             "description": "<p><code>data.name</code></p>"
@@ -148,189 +148,189 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "data.userId",
             "description": "<p><code>data.userId</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "data.organizationId",
             "description": "<p><code>data.organizationId</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "data.workspaceId",
             "description": "<p><code>data.workspaceId</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "data.referenceId",
             "description": "<p><code>data.referenceId</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "data.referenceType",
             "description": "<p><code>data.referenceType</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Any",
+            "type": "any",
             "optional": false,
             "field": "data.ext",
             "description": "<p><code>data.ext</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Any",
+            "type": "any",
             "optional": false,
             "field": "highlight",
             "description": "<p><code>highlight</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "object",
             "optional": false,
             "field": "org",
             "description": "<p><code>org</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "org.id",
             "description": "<p><code>org.id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "org.fullname",
             "description": "<p><code>org.fullname</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "object",
             "optional": false,
             "field": "workspace",
             "description": "<p><code>workspace</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "workspace.id",
             "description": "<p><code>workspace.id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "workspace.fullname",
             "description": "<p><code>workspace.fullname</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "object",
             "optional": false,
             "field": "parentMission",
             "description": "<p><code>parentMission</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "parentMission.id",
             "description": "<p><code>parentMission.id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "parentMission.title",
             "description": "<p><code>parentMission.title</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "object",
             "optional": false,
             "field": "ref",
             "description": "<p><code>ref</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "ref.id",
             "description": "<p><code>ref.id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "ref.title",
             "description": "<p><code>ref.title</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "object",
             "optional": false,
             "field": "room",
             "description": "<p><code>room</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "room._id",
             "description": "<p><code>room._id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "room.id",
             "description": "<p><code>room.id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "room.name",
             "description": "<p><code>room.name</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "object",
             "optional": false,
             "field": "user",
             "description": "<p><code>user</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "user.id",
             "description": "<p><code>user.id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "user.nickname",
             "description": "<p><code>user.nickname</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "user.avatar",
             "description": "<p><code>user.avatar</code></p>"
@@ -352,7 +352,7 @@
       "fields": {
         "Parameter": [{
           "group": "Parameter",
-          "type": "Number",
+          "type": "number",
           "optional": false,
           "field": "id",
           "description": "<p>Unique ID.</p>"
@@ -363,28 +363,28 @@
       "fields": {
         "Success 200": [{
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "color",
             "description": "<p><code>color</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "radius",
             "description": "<p><code>radius</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "sideLength",
             "description": "<p><code>sideLength</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "bottomLength",
             "description": "<p><code>bottomLength</code></p>"
@@ -406,7 +406,7 @@
       "fields": {
         "Parameter": [{
           "group": "Parameter",
-          "type": "Number",
+          "type": "number",
           "optional": false,
           "field": "id",
           "description": "<p>Unique ID.</p>"
@@ -417,28 +417,28 @@
       "fields": {
         "Success 200": [{
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "jobTitle",
             "description": "<p><code>jobTitle</code> - The job title string</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "object",
             "optional": false,
             "field": "person",
             "description": "<p><code>person</code> - The IPerson Interface</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "person.name",
             "description": "<p><code>person.name</code> - The name of the person</p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "person.age",
             "description": "<p><code>person.age</code> - The age of the person</p>"
@@ -455,18 +455,18 @@
             "type": "Object",
             "optional": false,
             "field": "person.address",
-            "description": "<p><code>person.address</code> - The Address Object</p>"
+            "description": "<p><code>person.address</code> - The Address object</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "person.address.address_line_1",
             "description": "<p><code>person.address.address_line_1</code> - Address line 1</p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "person.address.postcode",
             "description": "<p><code>person.address.postcode</code> - Postcode</p>"
@@ -480,14 +480,14 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "person.address.location.country",
             "description": "<p><code>person.address.location.country</code> - Country</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "person.address.location.city",
             "description": "<p><code>person.address.location.city</code></p>"
@@ -501,35 +501,35 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "person.address.location.region.a",
             "description": "<p><code>person.address.location.region.a</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "person.address.location.region.b",
             "description": "<p><code>person.address.location.region.b</code> - b prop</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "object[]",
             "optional": false,
             "field": "skills",
             "description": "<p><code>skills</code> - An array of ISkill interfaces</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "skills.description",
             "description": "<p><code>skills.description</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "skills.level",
             "description": "<p><code>skills.level</code></p>"
@@ -562,14 +562,14 @@
       "fields": {
         "Success 200": [{
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "color",
             "description": "<p><code>color</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "width",
             "description": "<p><code>width</code></p>"
@@ -591,7 +591,7 @@
       "fields": {
         "Parameter": [{
           "group": "Parameter",
-          "type": "Number",
+          "type": "number",
           "optional": false,
           "field": "id",
           "description": "<p>Unique ID.</p>"
@@ -602,28 +602,28 @@
       "fields": {
         "Success 200": [{
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "description",
             "description": "<p><code>description</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "level",
             "description": "<p><code>level</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "color",
             "description": "<p><code>color</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "number",
             "optional": false,
             "field": "radius",
             "description": "<p><code>radius</code></p>"
@@ -645,7 +645,7 @@
       "fields": {
         "Parameter": [{
           "group": "Parameter",
-          "type": "Number",
+          "type": "number",
           "optional": false,
           "field": "id",
           "description": "<p>Unique ID.</p>"
@@ -656,21 +656,21 @@
       "fields": {
         "Success 200": [{
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "internal_id",
             "description": "<p><code>internal_id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "public_id",
             "description": "<p><code>public_id</code></p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "name",
             "description": "<p><code>name</code></p>"
@@ -692,7 +692,7 @@
       "fields": {
         "Parameter": [{
           "group": "Parameter",
-          "type": "Number",
+          "type": "number",
           "optional": false,
           "field": "id",
           "description": "<p>Unique ID.</p>"
