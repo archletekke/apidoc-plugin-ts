@@ -129,7 +129,7 @@ function setInterfaceElements (
   matchedInterface.getProperties().forEach((prop: PropertySignature) => {
     // Set param type definition and description
     const typeDef = inttype ? `${inttype}.${prop.getName()}` : prop.getName()
-    const description = getDocumentationComments(prop, typeDef);
+    const description = getDocumentationComments(prop, typeDef)
 
     // Set property type as a string
     const propTypeName = prop.getType().getText()

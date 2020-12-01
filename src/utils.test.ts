@@ -111,21 +111,21 @@ describe('utils', () => {
       expect(parse('{Model}')).toMatchObject({
         interface: 'Model',
         description: '',
-        element: 'apiSuccess',
+        element: 'apiSuccess'
       })
     })
     it('should parse with name but no comment', () => {
       expect(parse('{Model} name')).toMatchObject({
         interface: 'Model',
         description: '',
-        element: 'name',
+        element: 'name'
       })
     })
     it('should parse with name and comment', () => {
       expect(parse('{Model} name I am a comment')).toMatchObject({
         interface: 'Model',
         description: 'I am a comment',
-        element: 'name',
+        element: 'name'
       })
     })
     it('should parse with path, name and comment', () => {
@@ -133,7 +133,7 @@ describe('utils', () => {
         path: 'path.ts',
         interface: 'Model',
         description: 'I am a comment',
-        element: 'name',
+        element: 'name'
       })
     })
   })
