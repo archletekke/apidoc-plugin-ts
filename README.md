@@ -5,11 +5,11 @@ A plugin for [apidoc](https://www.npmjs.com/package/apidoc) that injects `@apiSu
 ## Getting started
 
 ```javascript
-npm install --save-dev apidoc @archlet/apidoc-plugin-ts
+npm install --save-dev apidoc apidoc-plugin-ts-archlet
 ```
 
 ```javascript
-yarn add -D apidoc @archlet/apidoc-plugin-ts
+yarn add -D apidoc apidoc-plugin-ts-archlet
 ```
 
 A custom api-doc param `@apiInterfaceSuccess` is exposed:
